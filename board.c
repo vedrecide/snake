@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+#include "board.h"
+
+void draw_board(Snake *s) {
+    for (int row = 0; row < BOARD_HEIGHT; row++) {
+        for (int column = 0; column < BOARD_WIDTH; column++) {
+            if (row == 0 || row == BOARD_HEIGHT - 1 || column == 0 || column == BOARD_WIDTH - 1) {
+                printf("#");
+            } else if (row == s->body[0].y && column == s->body[0].x) {
+                printf("O");
+            }
+             else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}

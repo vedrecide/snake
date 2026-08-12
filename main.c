@@ -22,7 +22,7 @@ int main(void) {
     srand(time(NULL));
 
     Snake s;
-    Position food = { rand() % (BOARD_HEIGHT - 2) + 1, rand() % (BOARD_HEIGHT - 2) + 1};
+    Position food = { rand() % (BOARD_WIDTH - 2) + 1, rand() % (BOARD_HEIGHT - 2) + 1};
 
     init_snake(&s);
     game_loop(&s, &food);

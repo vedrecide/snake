@@ -3,6 +3,13 @@
 
 #include "board.h"
 
+void spawn_food(Snake *s, Position *food) {
+    do {
+        food->x = rand() % (BOARD_WIDTH - 2) + 1;
+        food->y = rand() % (BOARD_HEIGHT - 2) + 1;
+    } while (is_position_on_snake(s, food));
+}
+
 void draw_board(Snake *s, Position *food) {
     for (int row = 0; row < BOARD_HEIGHT; row++) {
         for (int column = 0; column < BOARD_WIDTH; column++) {
@@ -12,6 +19,8 @@ void draw_board(Snake *s, Position *food) {
                 printf("O");
             } else if (row == food->y && column == food->x) {
                 printf("*");
+            } else if (check_food_collision(s, food)) {
+                spawn_food(s, food);
             } else {
                 printf(" ");
             }

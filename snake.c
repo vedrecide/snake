@@ -24,6 +24,20 @@ void move_snake(Snake *s) {
     }
 }
 
+int is_position_on_snake(Snake *s, Position *pos) {
+    for (int i = 0; i < s->length - 1; i++) {
+        if (s->body[i].x == pos->x && s->body[i].y == pos->y) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+int check_food_collision(Snake *s, Position *food) {
+    return s->body[0].x == food->x && s->body[0].y == s->body[0].y;
+}
+
 void handle_input(Snake *s) {
     if (_kbhit()) {
         char key = _getch();

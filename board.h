@@ -6,6 +6,8 @@
 #define BOARD_HEIGHT 20
 #define BOARD_WIDTH 40
 
+void spawn_food(Snake *s, Position *food);
+
 void draw_board(Snake *s, Position *food);
 
 #endif

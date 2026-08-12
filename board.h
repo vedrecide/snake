@@ -6,6 +6,6 @@
 #define BOARD_HEIGHT 20
 #define BOARD_WIDTH 40
 
-void draw_board(Snake *s);
+void draw_board(Snake *s, Position *food);
 
 #endif

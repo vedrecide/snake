@@ -24,6 +24,8 @@ void init_snake(Snake *s);
 
 void move_snake(Snake *s);
 
+void grow_snake(Snake *s);
+
 int is_position_on_snake(Snake *s, Position *pos);
 
 int check_food_collision(Snake *s, Position *food);

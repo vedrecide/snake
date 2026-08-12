@@ -15,14 +15,25 @@ void draw_board(Snake *s, Position *food) {
         for (int column = 0; column < BOARD_WIDTH; column++) {
             if (row == 0 || row == BOARD_HEIGHT - 1 || column == 0 || column == BOARD_WIDTH - 1) {
                 printf("#");
-            } else if (row == s->body[0].y && column == s->body[0].x) {
-                printf("O");
-            } else if (row == food->y && column == food->x) {
-                printf("*");
-            } else if (check_food_collision(s, food)) {
-                spawn_food(s, food);
             } else {
-                printf(" ");
+                int part = -1;
+
+                for (int i = 0; i < s->length; i++) {
+                    if (row == s->body[i].y && column == s->body[i].x) {
+                        part = i;
+                        break;
+                    }
+                }
+
+                if (part == 0) {
+                    printf("O");
+                } else if (part > 0) {
+                    printf("o");
+                } else if (row == food->y && column == food->x) {
+                    printf("*");
+                } else {
+                    printf(" ");
+                }
             }
         }
         printf("\n");

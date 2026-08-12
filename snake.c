@@ -8,6 +8,10 @@ void init_snake(Snake *s) {
 }
 
 void move_snake(Snake *s) {
+    for (int i = s->length; i > 0; i--) {
+        s->body[i] = s->body[i-1];
+    }
+
     switch(s->direction) {
         case UP:
             s->body[0].y--;
@@ -21,6 +25,13 @@ void move_snake(Snake *s) {
         case RIGHT:
             s->body[0].x++;
             break;
+    }
+}
+
+void grow_snake(Snake *s) {
+    if (s->length < MAX_SNAKE_LENGTH) {
+        s->body[s->length] = s->body[s->length - 1];
+        s->length++;
     }
 }
 

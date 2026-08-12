@@ -11,6 +11,13 @@ void game_loop(Snake *s, Position *food) {
         handle_input(s);
         move_snake(s);
 
+        if (check_food_collision(s, food)) {
+            if (s->length < MAX_SNAKE_LENGTH) {
+                grow_snake(s);
+                spawn_food(s, food);
+            }
+        }
+
         system("cls");
         draw_board(s, food);
 

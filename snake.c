@@ -35,7 +35,7 @@ int is_position_on_snake(Snake *s, Position *pos) {
 }
 
 int check_food_collision(Snake *s, Position *food) {
-    return s->body[0].x == food->x && s->body[0].y == s->body[0].y;
+    return s->body[0].x == food->x && s->body[0].y == food->y;
 }
 
 void handle_input(Snake *s) {

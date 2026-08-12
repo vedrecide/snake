@@ -14,7 +14,7 @@ void game_loop(Snake *s, Position *food) {
         system("cls");
         draw_board(s, food);
 
-        Sleep(300);
+        Sleep(100);
     }
 }
 

@@ -11,10 +11,24 @@ void spawn_food(Snake *s, Position *food) {
 }
 
 int check_wall_collision(Snake *s) {
-    return !(s->body[0].x <= 0 ||
+    return s->body[0].x <= 0 ||
            s->body[0].x >= BOARD_WIDTH - 1 ||
            s->body[0].y <= 0 ||
-           s->body[0].y >= BOARD_HEIGHT - 1);
+           s->body[0].y >= BOARD_HEIGHT - 1;
+}
+
+int check_self_collision(Snake *s) {
+    if (s->length > 4) {
+        for (int i = 1; i < s->length; i++) {
+            if (s->body[0].y == s->body[i].y && s->body[0].x == s->body[i].x) {
+                return 1;
+            }
+        }
+
+        return 0;
+    }
+
+    return 0;
 }
 
 void draw_board(Snake *s, Position *food) {

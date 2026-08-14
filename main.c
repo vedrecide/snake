@@ -7,7 +7,7 @@
 #include "snake.h"
 
 void game_loop(Snake *s, Position *food) {
-    while (check_wall_collision(s)) {
+    while (1) {
         handle_input(s);
         move_snake(s);
 
@@ -20,6 +20,10 @@ void game_loop(Snake *s, Position *food) {
 
         system("cls");
         draw_board(s, food);
+
+        if (check_wall_collision(s) || check_self_collision(s)) {
+            break;
+        }
 
         Sleep(100);
     }

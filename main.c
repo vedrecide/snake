@@ -7,7 +7,7 @@
 #include "snake.h"
 
 void game_loop(Snake *s, Position *food) {
-    while (1) {
+    while (check_wall_collision(s)) {
         handle_input(s);
         move_snake(s);
 

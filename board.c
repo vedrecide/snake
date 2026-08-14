@@ -10,6 +10,13 @@ void spawn_food(Snake *s, Position *food) {
     } while (is_position_on_snake(s, food));
 }
 
+int check_wall_collision(Snake *s) {
+    return !(s->body[0].x <= 0 ||
+           s->body[0].x >= BOARD_WIDTH - 1 ||
+           s->body[0].y <= 0 ||
+           s->body[0].y >= BOARD_HEIGHT - 1);
+}
+
 void draw_board(Snake *s, Position *food) {
     for (int row = 0; row < BOARD_HEIGHT; row++) {
         for (int column = 0; column < BOARD_WIDTH; column++) {

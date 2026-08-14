@@ -8,6 +8,8 @@
 
 void spawn_food(Snake *s, Position *food);
 
+int check_wall_collision(Snake *s);
+
 void draw_board(Snake *s, Position *food);
 
 #endif

@@ -30,8 +30,8 @@ void move_snake(Snake *s) {
 
 void grow_snake(Snake *s) {
     if (s->length < MAX_SNAKE_LENGTH) {
-        s->body[s->length] = s->body[s->length - 1];
         s->length++;
+        s->body[s->length] = s->body[s->length - 1];
     }
 }
 
